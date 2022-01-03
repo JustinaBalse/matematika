@@ -43,7 +43,11 @@
             e.preventDefault();
             if (+numberOne.innerHTML + +numberTwo.innerHTML=== parseInt(e.target[0].value)) {
                 document.querySelector(".answer__input").classList.add("answer__input-correct");
-                confetti();
+                confetti({
+                    particleCount: 300,
+                    spread: 180,
+                    startVelocity: 60
+                });
                 setTimeout(function(){
                     location.reload();
                 }, 3000);
