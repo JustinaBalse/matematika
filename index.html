@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card numberOne">
+           5
+        </div>
+        <div class="card operation">
+            +
+        </div>
+        <div class="card numberTwo">
+           6
+        </div>
+        <div class="card equal">
+            =
+        </div>
+        <form class="card answer">
+           <input type="text" autofocus size="2" class="answer__input" pattern="[0-9]{1,2}" title="Atsakymas turi būti skaičius.">
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+
+        function generateRandomNumber(){
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        const numberOne = document.querySelector(".numberOne");
+        const numberTwo = document.querySelector(".numberTwo");
+        const answer = document.querySelector(".answer");
+
+        numberOne.innerHTML = generateRandomNumber();
+        numberTwo.innerHTML = generateRandomNumber();
+
+        answer.addEventListener("submit", function(e){
+            e.preventDefault();
+            if (+numberOne.innerHTML + +numberTwo.innerHTML=== parseInt(e.target[0].value)) {
+                document.querySelector(".answer__input").classList.add("answer__input-correct");
+                confetti();
+                setTimeout(function(){
+                    location.reload();
+                }, 3000);
+            } else {
+                document.querySelector(".answer__input").classList.add("answer__input-wrong");
+                document.querySelector(".answer__input").addEventListener("input", function(){
+                    document.querySelector(".answer__input").classList.remove("answer__input-wrong");
+                })
+            }
+        })
+
+    </script>
+</body>
+</html>
