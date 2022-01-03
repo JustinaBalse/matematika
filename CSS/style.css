@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Luckiest Guy", cursive;
+}
+
+body {
+  background-color: pink;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+}
+
+.card {
+  flex-basis: 200px;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 9em;
+  padding: 1em 0;
+}
+
+.answer__input {
+  font-size: 1em;
+  text-align: center;
+  border: none;
+  border-bottom: 5px solid black;
+  background: var(--primary);
+  outline: none;
+  color: black;
+}
+
+input.answer__input:focus {
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+}
+
+.answer__input-correct {
+  border: 5px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+}
+
+.answer__input-wrong {
+  color: hotpink;
+}
